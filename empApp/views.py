@@ -18,8 +18,9 @@ def job_role_create(request):
     return render(request, 'job_role_form.html', {'form': form})
 
 def employee_list(request):
-    employees = Employee.objects.all()
+    employees = Employee.objects.select_related('job_role').all() 
     return render(request, 'employee_list.html', {'employees': employees})
+
 
 def employee_create(request):
     if request.method == 'POST':
