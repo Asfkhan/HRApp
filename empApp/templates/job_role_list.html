@@ -1,0 +1,7 @@
+<h1>Job Roles</h1>
+<a href="{% url 'job_role_create' %}">Add Job Role</a>
+<ul>
+    {% for job_role in job_roles %}
+    <li>{{ job_role.name }} - {{ job_role.description }}</li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add/Edit Employee</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> <!-- Link to a CSS file for styling -->
+</head>
+<body>
+    <div class="container">
+        <h1>{% if form.instance.pk %}Edit{% else %}Add{% endif %} Employee</h1>
+        
+        <!-- Form to add/edit an employee -->
+        <form method="post" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button type="submit">{% if form.instance.pk %}Update{% else %}Add{% endif %} Employee</button>
+        </form>
+
+        <!-- Link back to the employee list -->
+        <p>
+            <a href="{% url 'employee_list' %}">Back to Employee List</a>
+        </p>
+    </div>
+</body>
+</html>
