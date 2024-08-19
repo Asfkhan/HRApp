@@ -15,17 +15,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path
 from empApp.views import employee_list, employee_create, job_role_list, job_role_create, employee_list, employee_create
 
 urlpatterns = [
-    # path('', admin.site.urls),  # Admin site as the home page
-    path('admin/', admin.site.urls),  # Ensure admin URLs are available at /admin/
-    path('accounts/', include('django.contrib.auth.urls')), 
-    path('', employee_list, name='employee_list'),
-    path('employees/create/', employee_create, name='employee_create'),
     path('job-roles/', job_role_list, name='job_role_list'),
     path('job-roles/create/', job_role_create, name='job_role_create'),
+    path('employees/', employee_list, name='employee_list'),
+    path('employees/create/', employee_create, name='employee_create'),
    
 ]
 
