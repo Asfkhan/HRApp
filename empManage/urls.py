@@ -21,7 +21,7 @@ from empApp.views import employee_list, employee_create, job_role_list, job_role
 urlpatterns = [
     path('job-roles/', job_role_list, name='job_role_list'),
     path('job-roles/create/', job_role_create, name='job_role_create'),
-    path('employees/', employee_list, name='employee_list'),
+    path('', employee_list, name='employee_list'),
     path('employees/create/', employee_create, name='employee_create'),
    
 ]
